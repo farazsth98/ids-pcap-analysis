@@ -2,11 +2,11 @@
 
 >The packets are all ethernet packets
 
->One is a CDP packet which is sent out by Cisco devices. This tells us there is a Cisco device in this data
+>One is a CDP packet which is sent out by Cisco devices. This tells us there is a Cisco device (switch/router) in this set of data
 
 >A DNS query and a successful response for picard.uthscsa.edu (129.111.30.27)
 
->There are keepalive packets that the Cisco device sends itself every seconds to make sure the connection is still valid (otherwise it would disconnect)
+>There are keepalive packets that the Cisco device sends itself every 10 seconds to make sure the connection is still valid (otherwise it would disconnect)
 
 
 

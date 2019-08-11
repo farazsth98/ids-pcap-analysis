@@ -12,9 +12,9 @@
 
 * There is a fragmented IPv4 packet which is reassembled in frame 9 and turns out to be a UDP packet with a bad length that is greater than the IP payload length. In this case however, we can see that the fragment offset of the first packet is set to 0. 
 
-I read up on Teardrop attacks and found out that if the sum of the fragment offset and the size of one fragmented packet differs from the next fragmented packet, the packets overlap and a server vulnerable to teardrop attacks will not be able to reassemble the packets, resulting in a DoS.
+  I read up on Teardrop attacks and found out that if the sum of the fragment offset and the size of one fragmented packet differs from the next fragmented packet, the packets overlap and a server vulnerable to teardrop attacks will not be able to reassemble the packets, resulting in a DoS.
 
-In this case, first fragment at frame 8 has an offset of 0 and a size of 70 bytes. Second fragment at frame 9 has a size of 38 bytes, which is less than the sum of the offset and size of the previous fragmented packet, therefore I assume this was an attempt of a teardrop attack that failed because the OS that it targetted is not vulnerable to this attack.
+  In this case, first fragment at frame 8 has an offset of 0 and a size of 70 bytes. Second fragment at frame 9 has a size of 38 bytes, which is less than the sum of the offset and size of the previous fragmented packet, therefore I assume this was an attempt of a teardrop attack that failed because the OS that it targetted is not vulnerable to this attack.
 
 
 

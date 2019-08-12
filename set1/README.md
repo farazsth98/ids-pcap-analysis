@@ -24,6 +24,59 @@
 
 
 
+
+# Pcap \#2
+
+On first glance, there are 622 requests over 29 seconds. That is about 21-22 packets per second, which is a lot.
+
+* Looking at the packets and sorting the Info tab alphabetically, we see that it is definitely an ARP storm attack. We know this because there are multiple ARP requests for IP addresses in a sequential order in a couple different subnets.
+
+* Because of the sequential order that the IPs are checked, it looks like someone is trying to do some reconnaisance to find what devices exist in each of the local subnets.
+
+* There aren't enough packets to cause a Denial of Service though. 
+
+
+
+
+# Pcap \#3
+
+We only have one packet to analyse..
+
+* This packet has an invalid checksum value.
+
+* The data is just "hello world\n".
+
+* The packet itself has a padding of 6 null bytes.
+
+* The protocol is defined as Lightweight UDP, however the port that it usually runs on is 136, and this one is running on port 1234. I would definitely not trust this service.
+
+
+
+# Pcap \#4
+
+This pcap file mostly has TCP packets, but there are two DNS packets and 4 HTTP packets.
+
+* 65.208.228.223 sent 34 packets to 145.254.160.237, but received 0 packets back. That is a bit weird.
+
+* There are two HTTP GET requests and two HTTP 200 responses.
+
+* The first GET request is for `/download.html` at the host `ethereal.com` and this is what transfers the bulk of the data. The second one is for an ad from google (that is probably on the page).
+
+* The connection takes 13 seconds to terminate after the first FIN packet gets sent. I think that's weird? Taking 13 seconds for a connection to terminate.
+
+
+
+# Pcap \#5
+
+This seems like a pcap file that has data on two different devices trying to communicate with PPP. 
+
+* It looks like someone is trying to authenticate as the user "Tyson"
+
+* They try to authenticate twice, with two different fields as "values". The attempt fails both times.
+
+* The connection then just terminates. Nothing unusual here.
+
+
 # Pcap \#6
 
 This just looks like a pcap file that has information regarding one user talking to a Gopher service on another server.

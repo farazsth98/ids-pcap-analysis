@@ -21,3 +21,19 @@
 * AddtronT sends out four ARP requests to Toshiba_cf to find out which machine has the IP 10.0.0.254, Toshiba_cf doesn't respond. AddtronT then sounds out a broadcast ARP request and Toshiba_cf finally responds and lets AddtronT know that Toshiba_cf has the IP 10.0.0.254. From this, I can tell that the Cisco switch/router's ARP table deleted the entry for Toshiba_cf which is why a broadcast was required.
 
 * After the ARP requests succeed, Toshiba_cf pings AddtronT and gets a reply back.
+
+
+
+# Pcap \#6
+
+This just looks like a pcap file that has information regarding one user talking to a Gopher service on another server.
+
+* Gopher service is at IP 192.168.195.100, Another one is T 86.43.88.90
+
+* The user making requests to the IP is at 192.168.190.20
+
+* Gopher is running on Port 70 for both IPs
+
+* Each connection seems to run for around under a second and exchanges about the amount of data you'd expect
+
+* Seems benign to me

@@ -118,7 +118,14 @@ This just looks like a pcap file that has information regarding one user talking
 
 * There's only one UDP packet whose payload contains the string "this leeto string will crash your little nameserver for sure hahahahah"
 
+* The metadata of the packet also shows that the checksum checks are disabled, so it definitely looks malicious.
+
 * Based on the fact that this is the only UDP packet, I think it's safe to assume it did crash the server.
 
 
 
+# Pcap \#10
+
+* It's only one RARP (Reverse ARP) packet. It's just one machine trying to get an IP address from the network by sending out a broadcast RARP packet.
+
+* The only thing suspicious about it is that RARP is now obsolete, so depending on when this packet was captured, it could be suspicious, however nothing about the packet looks malicious.

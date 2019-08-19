@@ -90,3 +90,35 @@ This just looks like a pcap file that has information regarding one user talking
 * Each connection seems to run for around under a second and exchanges about the amount of data you'd expect
 
 * Seems benign to me
+
+
+
+# Pcap \#7
+
+* Just a bunch of DNS requests.
+
+* There is only one where the user (whoever they are) looks for www.example.notginh, which could be someone potentially testing to see whether the DNS server is actually working (or something like that?).
+
+* There is also a couple where the user tries to resolve ip addresses for a couple of DNS addresses that seem to be on a local network, where one is an ldap server, and the other is GRIMM.utelsystems.local. Utel Systems seems to be an organization that creates software for analyzing networks.
+
+* Nothing looks malicious here though.
+
+
+# Pcap \#8
+
+* Majority of the packets here are SMTP packets. Someone logs in to their email at xc90.websitewelcome.com. Email is `gurpartap@patriots.in` and password is `punjab@123`. 
+
+* He sends an email to someone named Raj Deol with an smtp pcap file attached.
+
+* Everything is encoded in base64 (well most of the things).
+
+
+
+# Pcap \#9
+
+* There's only one UDP packet whose payload contains the string "this leeto string will crash your little nameserver for sure hahahahah"
+
+* Based on the fact that this is the only UDP packet, I think it's safe to assume it did crash the server.
+
+
+

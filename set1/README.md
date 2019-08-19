@@ -108,7 +108,7 @@ This just looks like a pcap file that has information regarding one user talking
 
 * Majority of the packets here are SMTP packets. Someone logs in to their email at xc90.websitewelcome.com. Email is `gurpartap@patriots.in` and password is `punjab@123`. 
 
-* He sends an email to someone named Raj Deol with an smtp pcap file attached.
+* He sends an email to someone named Raj Deol with an smtp pcap file attached. Raj Deol's email is `raj_deol2002in@yahoo.co.in`.
 
 * Everything is encoded in base64 (well most of the things).
 

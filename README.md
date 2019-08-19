@@ -11,7 +11,7 @@
 **Q5.**
 
 **Q6.** A TCP session can be closed in two ways. First is using the FIN flag, where one side of the connection will send a packet with the FIN flag set to signify that they are ready to close. The other side will then send a FIN ACK packet, at which point the first side will wait for another FIN flag before closing the connection. This lets the second side finish off any processing they need to do. They will finally send a FIN packet, which the first side follows with a FIN ACK packet, thus closing the connection.
-**
+
 The second way to terminate the connection is with a RST packet. This will terminate the connection abruptly and immediately.
 
 **Q7**. The checksum is calculated based on the content that is within the packet. The checksum is unique for each content, meaning that if an attacker changes the content stored within the packets, they'll also need to recalculate the checksum. This is very easily done these days, so it's safe to say that it should only be used for error checking and network fault checking circumstances.

@@ -55,6 +55,13 @@ Nothing malicious about this.
 
 
 
+# Pcap \#16
+
+Nothing malicious about this. Seems like someone just connects to a Cisco router and sets up routes to two other routers R0 and R1, then uses CDP (Cisco Discovery Protocol) to make sure they are connected, then pings one router from another to ensure that pings go through.
+
+
+
+
 # Pcap \#17
 
 Kind of suspicious but nothing malicious about it stands out.
@@ -74,4 +81,35 @@ Kind of suspicious but nothing malicious about it stands out.
 
 Definitely malicious.
 
-* The attacker 172.16.16.128 initially establishes and terminates 6 connections, presumably to gather information about SMB shares since
+* The attacker 172.16.16.128 initially establishes and terminates 6 connections, presumably to gather information about SMB shares since every single connects to port 135 and terminates immediately.
+
+* The attacker then pings the IP.
+
+* The attacker then sends a huge UDP packet with a huge number of 'C's as the input to port 42283, presumably to check for a buffer overflow for some application that might be running on that port.
+
+* The user then sends a series of TCP packets with multiple flags set to see how the server would respond (There's no reason to ever set the SYN, ECN, CWR, and Reserved flags at the same time).
+
+* He seems to also play around with the window sizes of the TCP packets.
+
+* After each series of these weird TCP packets, he tries the buffer overflow attack to see if it works again.
+
+* Definitely a malicious pcap here.
+
+# Pcap \#19
+
+
+
+
+Looks malicious to me.
+
+* The client at IP 192.168.100.206 goes to a website located at 192.168.100.202 and requests the `/info` with a GET request.
+
+* The website immediately responds with a 302 and redirects the user to the `/info?rFfWELUjLJHpP` which contains a very obfuscated JS script embedded into the page.
+
+* The user then apparently makes a GET request for `/infowTVeeGDYJWNfsrdrvXiYApnuPoCMjRrSZuKtbVgwuZCXwxKjtEclbPuJPPctcflhsttMRrSyxl.gif`. This is probably what the JS script made the user do, since immediately following it, we see a TCP connection between the website's IP and the client.
+
+* In this connection, we see that the website has a reverse shell (cmd prompt) on the client's machine, and then does a `dir` command to list the files on the client's desktop. They find a `passwords.txt` file, and the client is probably pwned at this point.
+
+# Pcap \#20
+
+Cannot really classify it as malicious. It's just someone performing an nmap scan on the IP 64.13.134.52. The person doing the nmap scan has the IP 172.16.0.8

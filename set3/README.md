@@ -39,3 +39,21 @@ This is benign.
 * Other than that, we see some Syslog messages where someone successfully logs in as an admin into /index.php of some web server.
 
 * Nothing malicious about this.
+
+# Pcap \#26
+
+Benign.
+
+* We see someone try to connect using telnet but NTLM authentication fails. They then login using Administrator:napier as their credentials, do a directory listing, and exit.
+
+# Pcap \#27
+
+Malicious. The attacker is doing a UDP scan.
+
+# Pcap \#28
+
+Malicious. This is an Nmap scan with the FIN, PSH, and URG flags set probably to see how the target reacts to such packets.
+
+# Pcap \#30
+
+Benign. Simply someone checking their university email (not sure why its in plaintext but alright).

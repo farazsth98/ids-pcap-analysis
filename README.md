@@ -54,8 +54,24 @@ The second way to terminate the connection is with a RST packet. This will termi
 
 **Q6.** The NIPS would definitely have a smaller database of attack signatures, as they need to be fast. A bigger database of attack signatures means it takes longer to search through all of the signatures, and an NIPS must be quick to prevent the attack, so to reduce latency this is what happens. IDSs generally have 4-5x larger databases of signatures.
 
-**Q7.** HIDS generally use either file system based analysis or process based analysis. You either analyse the filesystem logs to find when people try to access files that they shouldn't try to access, or you analyze processes to find any rogue processes / processes that should not be there. For me personally, I'd try to use a process based analysis technique, as I believe that a host based IDS should be there to find if the host has been compromised by a virus or malware. Process based analysis will catch that. I believe that in a network, every "host" will be owned by some user (unless its a server or a DC), therefore the hosts themselves won't have any files on them that the users shouldn't have access to. An NIDS should be used to detect things like that. 
+**Q7.** HIDS generally use either file system based analysis or process based analysis. You either analyse the filesystem logs to find when people try to access files that they shouldn't try to access, or you analyze processes to find any rogue processes / processes that should not be there. For me personally, I'd try to use a process based analysis technique, as I believe that a host based IDS should be there to find if the host has been compromised by a virus or malware. Process based analysis will catch that. I believe that in a network, every "host" will be owned by some user (unless its a server or a DC), therefore the hosts themselves won't have any files on them that the users shouldn't have access to. An NIDS should be used to detect things like that.
 
 **Q8.** Most expensive part is definitely the part where you have to spend time setting up the IDS/IPS rules. It takes a long time to tweak them to be perfect and reduce the amount of false alarms that they cause, and it can get very tedious so it takes a lot of money and time to do it.
 
 **Q9.** The anomaly based IPSs only work if the attack creates anomalies that are enough to go above the threshold that is set for that IPS. If the attacker slows down their attack considerably, it is likely that the attack will pass right under the radar of the IPS. This is the main criticism against anomaly based IPSs.
+
+# Workshop \#7
+
+**Q1.** It is a piece of code that only runs on specific conditions such as when a malicious file might be transferred or if maybe someone tries to authenticate as root on ftp/ssh. What the shim will do then is it will block the activity from taking place. It is mostly used with intrusion prevention systems.
+
+**Q2.** One other way would be to monitor system and application logs to see if any malicious activity has taken place such as malicious file access or etc. The other way would be to do integrity checking on the file by using checksums file known file signatures.
+
+**Q3.** You can overwrite parts of a packet / break up a packet change each fragment's TTL so that some get stopped at the IDS, whereas others will pass through the IDS and get reconstructed further down, thus bypassing the IDS.
+
+**Q5.** 
+
+**Q6.** The heap not only contains allocated chunks, but it generally also contains metadata for these chunks. A heap based buffer overflow can be used to overwrite this metadata with user defined data. If done right, specially crafted user defined data can overwrite the heap metadata in such a way to allow for arbitrary code execution.
+
+**Q7.** A honeypot admin account is one that is setup and possibly visible to anyone that has access to the network, but one that no one should even attempt to access. Any attempts to access the honeypot admin account will be logged and can be viewed by an admin to determine if something malicious is going on, or if its just some curious sysadmin.
+
+**Q8.** First would be to use modern encryption such as WPA2, and possibly use Radius for authentication instead of using preshared keys. Second would be to make sure that the signal strength is modified to be as low as possible whilst covering the entire building / premises. This prevents other people from outside the premises from being able to access it. The third is to do regular sweeps of the network for rogue APs.

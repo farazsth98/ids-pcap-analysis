@@ -70,7 +70,7 @@ The second way to terminate the connection is with a RST packet. This will termi
 
 **Q4.** Stands for Tribal Flood Network. It essentially means a botnet that you can control from a CnC (Command and Control) center. This can be used to launch ddos attacks on any host very easily.
 
-**Q5.** The first method would be to have built in redundancy, such that the same "server" has multiple public facing IP addresses. If one of them get ddossed, the others won't be affected and will continue functioning. The second way would be to 
+**Q5.** The first method would be to have built in redundancy, such that the same "server" has multiple public facing IP addresses. If one of them get ddossed, the others won't be affected and will continue functioning. The second way would be to outsource the job.
 
 **Q6.** The heap not only contains allocated chunks, but it generally also contains metadata for these chunks. A heap based buffer overflow can be used to overwrite this metadata with user defined data. If done right, specially crafted user defined data can overwrite the heap metadata in such a way to allow for arbitrary code execution.
 

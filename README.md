@@ -2,7 +2,7 @@
 
 **Q1.** IPv6 obviously has a ton more IP addresses than IPv4. This allows every single machine in the world to be assigned a unique IPv6 address, which isn't possible with IPv4. This means that NAT isn't required anymore, which makes network scanning almost impossible using tools that are designed for IPv4 simply because theres so many addresses and no actual subnetting. An internal network can have any number of IP addresses from any range, thus there is no rule that the network would follow.
 
-**Q2** One way would be to introduce something at the hardware level, but it isn't being done widely.
+**Q2** One way would be to introduce something at the hardware level that identifies certain machines as being part of a subnet, but it isn't being done widely and is much harder to implement. It is also more restrictive to change.
 
 **Q3** Private network addresses are addresses that are particularly reserved for private networks. These include the 192.168.0.0/24 block, the 172.16.0.0/16 block, and the 10.0.0.0/8 block. Private network addresses increase security by preventing traces from being performed easily due to NAT translating between public and private IP addresses at network boundaries.
 
@@ -28,15 +28,15 @@ The second way to terminate the connection is with a RST packet. This will termi
 
 **Q2.** A signature based IDS works by having a database of signatures for known types of attacks / scans / etc. It will use this information to detect when any of these attacks take place. The problem is that since this type of IDS only uses signatures, they don't actually "understand" all the various protocols that a connection might use, thus it can't detect attacks that it doesn't already have signatures saved for.
 
-**Q3.** a) A known attack such as Eternal Blue. b) Scan emails and use signatures to detect known attacks over email c) You can look for error codes such as when someone turns of auditing in Windows, there is a specific code that gets put into the logs. d) Check for root logins through stuff like telnet, ftp, ssh, etc.
+**Q3.** a) A known attack such as Eternal Blue. b) Scan emails and use signatures to detect known attacks over email c) You can look for error codes such as when someone turns off auditing in Windows, there is a specific code that gets put into the logs. d) Check for root logins through stuff like telnet, ftp, ssh, etc.
 
 **Q4.** A slow slicing attack happens over a very long period of time. Assuming that this question is talking about anomaly based IDSes, these IDSes depend on attacks being anomalies. If an attack is done over a very long period of time, the anomalies that the attack might produce start to look like normal traffic to the IDS, thus the IDS will never be able to detect such an attack.
 
-**Q5.** NBIDSes (Network Based Intrusion Detection Systems) have huge amounts of traffic to sift through since a network will more than likely have a huge number of machines thus a heg amount of traffic. With OS fingerprinting, the NBIDS can only look for attacks that matter to it. For example, if a network only has Linux machines, then it is useless to detect attacks like BlueKeep or EternalBlue, therefore the IDS will just let them pass through, since they are practically harmless. This reduces the load on the NBIDS in general, thus its becoming a very common technique.
+**Q5.** NBIDSes (Network Based Intrusion Detection Systems) have huge amounts of traffic to sift through since a network will more than likely have a huge number of machines thus a huge amount of traffic. With OS fingerprinting, the NBIDS can only look for attacks that matter to it. For example, if a network only has Linux machines, then it is useless to detect attacks like BlueKeep or EternalBlue, therefore the IDS will just let them pass through, since they are practically harmless. This reduces the load on the NBIDS in general, thus its becoming a very common technique.
 
 **Q6.** With TCP port 4444 open, I would expect to see a meterpreter shell in the trace activity because that is the default port that metasploit listens on to create meterpreter connections.
 
-**Q7.** Protocol/application analysis requires a lot of resources as the IDS has to do a deep packet scan and also be able to detect attacks / anomalies. Another problem is that protocols and applications are not standard. They are defined by RFCs meaning that some protocols and applications can have some different implementations in the way certain things are handled. When you set up rules for the IDS, it depends on these standards being followed, but a lot of applications won't, thus it will be a key problem. The last problem is that protocls and applications always change over time to defend against new attacks, to patch stuff, etc. When these happen, it becomes a challenge. All rules that pertain to that protocol/application needs to be recreated and changed.
+**Q7.** Protocol/application analysis requires a lot of resources as the IDS has to do a deep packet scan and also be able to detect attacks / anomalies. Another problem is that protocols and applications are not standard. They are defined by RFCs meaning that some protocols and applications can have some different implementations in the way certain things are handled. When you set up rules for the IDS, it depends on these standards being followed, but a lot of applications won't, thus it will be a key problem. The last problem is that protocols and applications always change over time to defend against new attacks, to patch stuff, etc. When these happen, it becomes a challenge. All rules that pertain to that protocol/application needs to be recreated and changed.
 
 **Q8.** The four types of events are true positive, true negative, false positive, and false negative events. The most dangerous would be a false negative, where in reality there is an attack going on, but the IDS says that there are no attacks going on. This will let the attack fly by completely undetected.
 
@@ -68,7 +68,9 @@ The second way to terminate the connection is with a RST packet. This will termi
 
 **Q3.** You can overwrite parts of a packet / break up a packet change each fragment's TTL so that some get stopped at the IDS, whereas others will pass through the IDS and get reconstructed further down, thus bypassing the IDS.
 
-**Q5.** 
+**Q4.** Stands for Tribal Flood Network. It essentially means a botnet that you can control from a CnC (Command and Control) center. This can be used to launch ddos attacks on any host very easily.
+
+**Q5.** The first method would be to have built in redundancy, such that the same "server" has multiple public facing IP addresses. If one of them get ddossed, the others won't be affected and will continue functioning. The second way would be to 
 
 **Q6.** The heap not only contains allocated chunks, but it generally also contains metadata for these chunks. A heap based buffer overflow can be used to overwrite this metadata with user defined data. If done right, specially crafted user defined data can overwrite the heap metadata in such a way to allow for arbitrary code execution.
 

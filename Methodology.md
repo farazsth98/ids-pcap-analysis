@@ -8,6 +8,8 @@
 
 5. Check for automated scans / attacks (lots of packets in a short amount of time)
 
-6. If all else fails, pick out a couple packets and check them manually to make sure checksums.
+6. CHECK FOR HTTP HEADERS, USER AGENT, ETC FOR SQL INJECTION
 
-7. Remember to check for downloadable files.
+7. If all else fails, pick out a couple packets and check them manually to make sure checksums.
+
+8. Remember to check for downloadable files.

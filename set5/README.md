@@ -32,6 +32,8 @@ Same as pcap 44 except the client and server are backwards now? It seems like th
 
 # Pcap \#49
 
+There doesn't seem to be anything malicious here. Just looks like someone checking their mail at www.throwawaymail.com. Although there are a lot of dropped packets and a lot of re-transmissions, I don't see anything malicious here.
+
 # Pcap \#50
 
 There is some ARP traffic at the beginning, but then there is a very consistent pattern of ICMP packets followed by DNS packets. The ICMP packets seem to have a payload of "!\"#$%&'()\*+,-./01234567" which looks like someone is trying to see if weird characters in an ICMP payload will crash the other machine. I will go with malicious simply because of the crafted packets.
@@ -50,3 +52,30 @@ Looks benign. Just some DHCP requests.
 
 # Pcap \#54
 
+Unsure, but looks like someone just running a speedtest. There are some WEIRD requests on port 8080, but again, nothing I would classify as malicious.
+
+# Pcap \#55
+
+Looks like someone with terrible internet connection. There are lots of re-transmissions, but nothing malicious.
+
+# Pcap \#56
+
+Some DNS requests for some debian package repositories. Seems like someone trying to update their Ubuntu machine. Benign.
+
+# Pcap \#57
+
+Malicious. Looks like someone trying to see if sending the string "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^\_" to the UDP ports between 33434-33468 will affect the remote server in any way. Could be trying to find port knocking services or just seeing if the remote machine crashes at any time.
+
+# Pcap \#58
+
+Malicious. Someone is sending SYN packets to port 3000 over and over again. Mihai seems to have put the message "Checking the payload is a good idea" into the payload.
+
+# Pcap \#59
+
+Malicious. Nikto scan.
+
+# Pcap \#60
+
+Someone connects to FTP anonymously and tries to list files, as well as tries to store a file there. Very suspicious.
+
+There are SYN packets sent to port 139, 256, 554, and 3389, with no response. It seems like a scan trying to find ports for netbios, checkpoint firewall, RTSP, and RDP. So I will go with malicious.

@@ -56,7 +56,7 @@ Malicious. Attacker is at 192.168.56.105
 
 # Pcap \#38
 
-Looks malicious? Seems like the attacker at IP 192.168.50.50 sends NTP packets to multiple different IPs to presumably see how they react. Perhaps he wants to see if those IPs are alive?
+Benign. Normal NTP traffic.
 
 # Pcap \#39
 

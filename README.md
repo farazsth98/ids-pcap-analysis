@@ -77,3 +77,11 @@ The second way to terminate the connection is with a RST packet. This will termi
 **Q7.** A honeypot admin account is one that is setup and possibly visible to anyone that has access to the network, but one that no one should even attempt to access. Any attempts to access the honeypot admin account will be logged and can be viewed by an admin to determine if something malicious is going on, or if its just some curious sysadmin.
 
 **Q8.** First would be to use modern encryption such as WPA2, and possibly use Radius for authentication instead of using preshared keys. Second would be to make sure that the signal strength is modified to be as low as possible whilst covering the entire building / premises. This prevents other people from outside the premises from being able to access it. The third is to do regular sweeps of the network for rogue APs.
+
+# Workshop \#8
+
+**Q3.** 1. Make sure every application is patched. 2. Make sure privileges are set correctly. 3. Implement strong application whitelisting. 4. Make sure every OS is patched appropriately.
+
+**Q4.** You cannot trust the compromised system, which is why you should use read-only media to use your own tools to perform the incident handling.
+
+**Q6.** You have to rely on the cloud provider to give you the information, which might be an extra feature that they sell. If you however set your own incident handling system with IDSs and IPSs and logging facilities, then you can use most of the same techniques still to perform your own incident handling.
